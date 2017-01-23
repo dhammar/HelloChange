@@ -41,10 +41,8 @@ public class Register {
      * @return String representation of monetary contents of Register after bills are inserted.
      */
     public String put(HashMap<Bill, Integer> billsToAdd) {
-        if(billsToAdd == null) {
-            throw new NullPointerException("billsToAdd cannot be null.");
-        }
-        if(billsToAdd.values()
+        if(billsToAdd == null ||
+                billsToAdd.values()
                 .stream()
                 .anyMatch((value) -> value < 0)){
             return "sorry";
@@ -67,10 +65,8 @@ public class Register {
      * @return String representation of monetary contents of Register after bills are inserted.
      */
     public String take(HashMap<Bill, Integer> billsToTake) {
-        if(billsToTake == null){
-            throw new NullPointerException("billsToTake cannot be null.");
-        }
-        if(billsToTake.values()
+        if(billsToTake == null ||
+                billsToTake.values()
                 .stream()
                 .anyMatch((value) -> value < 0)){
             return "sorry";
